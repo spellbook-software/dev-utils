@@ -1,0 +1,22 @@
+{
+  "name": "@spellbook/jest-config",
+  "version": "0.1.0",
+  "description": "common jest config",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "validate": "node ./scripts/validate.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "jest-validate": "^24.8.0"
+  },
+  "dependencies": {
+    "babel-jest": "^24.8.0",
+    "empty": "^0.10.1",
+    "jest": "^24.8.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.4.4"
+  }
+}
