@@ -48,7 +48,17 @@ module.exports = {
     "react/jsx-curly-brace-presence": "off",
     "no-underscore-dangle": ["error", { allowAfterThis: true }],
     "unicorn/filename-case": "off",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        replacements: {
+          dir: {
+            directory: false
+          }
+        }
+      }
+    ]
   },
   overrides: [
     {
