@@ -1,0 +1,10 @@
+{
+  "name": "@spellbook/dev-utils",
+  "version": "1.0.0",
+  "description": "Configuration and utility packages for happy development experience.",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "MIT"
+}
