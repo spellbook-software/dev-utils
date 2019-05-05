@@ -1,5 +1,5 @@
 {
-  "name": "@spellbook/eslint-config-spellbook",
+  "name": "@spellbook/linter-config",
   "version": "1.0.0",
   "description": "common eslint config",
   "main": "index.js",
