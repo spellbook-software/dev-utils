@@ -55,7 +55,7 @@ module.exports = {
         replacements: {
           dir: {
             directory: false
-          }
+          },
           env: {
             environment: false
           }
