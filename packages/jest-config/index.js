@@ -9,5 +9,5 @@ module.exports = {
   testEnvironment: "jsdom",
   moduleFileExtensions: ["js", "jsx", "json"],
   testPathIgnorePatterns: ["<rootDir>/(build|docs|node_modules)/"],
-  setupFiles: ["<rootDir>/testSetup.js"],
+  setupFiles: [],
 };
