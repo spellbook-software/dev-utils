@@ -4,16 +4,13 @@ module.exports = {
     sourceType: "module",
     allowImportExportEverywhere: false,
     ecmaFeatures: {
-      globalReturn: false
+      globalReturn: false,
     },
-    babelOptions: {
-      configFile: ".babelrc"
-    }
   },
   env: {
     es6: true,
     browser: true,
-    node: true
+    node: true,
   },
   plugins: ["babel", "flowtype", "prettier", "react", "standard", "unicorn"],
   extends: [
@@ -26,21 +23,21 @@ module.exports = {
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
-    "prettier/unicorn"
+    "prettier/unicorn",
   ],
   settings: {
     flowtype: {
-      onlyFilesWithFlowAnnotation: false
+      onlyFilesWithFlowAnnotation: false,
     },
     "import/core-modules": ["electron"],
     "import/resolver": {
       node: {
         paths: ["src"],
         alias: {
-          cc: "companion-components"
-        }
-      }
-    }
+          cc: "companion-components",
+        },
+      },
+    },
   },
   rules: {
     "no-console": "off",
@@ -53,23 +50,23 @@ module.exports = {
       "error",
       {
         replacements: {
-          dir: {
-            directory: false
-          },
+          args: false,
+          dev: false,
+          dir: false,
           env: {
-            environment: false
-          }
-        }
-      }
-    ]
+            environment: false,
+          },
+        },
+      },
+    ],
   },
   overrides: [
     {
       files: ["**/*.spec.js"],
       plugins: ["jest"],
       env: {
-        jest: true
-      }
-    }
-  ]
+        jest: true,
+      },
+    },
+  ],
 };
