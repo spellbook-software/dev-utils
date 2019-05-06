@@ -56,6 +56,9 @@ module.exports = {
           dir: {
             directory: false
           }
+          env: {
+            environment: false
+          }
         }
       }
     ]
