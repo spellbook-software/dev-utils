@@ -1,15 +1,13 @@
 module.exports = {
-  rootDir: "src",
+  rootDir: ".",
   modulePaths: ["<rootDir>"],
   testMatch: ["<rootDir>/**/*.spec.js?(x)", "<rootDir>**/*.steps.js"],
   verbose: true,
   moduleNameMapper: {
-    "\\.(css|scss)$": "empty/object"
-  },
-  transform: {
-    "^.+\\.jsx?$": "babel-jest"
+    "\\.(css|scss)$": "empty/object",
   },
   testEnvironment: "jsdom",
-  moduleFileExtensions: ["js", "jsx", "json"]
-  // setupFiles: ["<rootDir>/setup.js"],
+  moduleFileExtensions: ["js", "jsx", "json"],
+  testPathIgnorePatterns: ["<rootDir>/(build|docs|node_modules)/"],
+  setupFiles: ["<rootDir>/testSetup.js"],
 };
