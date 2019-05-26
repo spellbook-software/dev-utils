@@ -1,72 +1,55 @@
-module.exports = {
-  parser: "babel-eslint",
-  parserOptions: {
-    sourceType: "module",
-    allowImportExportEverywhere: false,
-    ecmaFeatures: {
-      globalReturn: false,
-    },
-  },
-  env: {
-    es6: true,
-    browser: true,
-    node: true,
-  },
-  plugins: ["babel", "flowtype", "prettier", "react", "standard", "unicorn"],
-  extends: [
-    "airbnb",
-    "plugin:flowtype/recommended",
-    "plugin:react/recommended",
-    "plugin:unicorn/recommended",
-    "prettier",
-    "prettier/babel",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard",
-    "prettier/unicorn",
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { addTypescriptParser } = require("./lib/parsers");
+const {
+  addIndustryStandards,
+  addTypescript,
+  addReact,
+  addPrettier,
+  addImportSupport,
+} = require("./lib/extensions");
+const { addJestOverrides } = require("./lib/overrides");
+
+const config = {};
+
+config.env = {
+  es6: true,
+  browser: true,
+  node: true,
+};
+
+addTypescriptParser(config);
+addIndustryStandards(config);
+addTypescript(config);
+addReact(config);
+addImportSupport(config);
+addPrettier(config);
+addJestOverrides(config);
+
+config.rules = {
+  "no-console": "off",
+  "react/jsx-filename-extension": [1, { extensions: [".js", ".ts"] }],
+  // https://github.com/facebook/react/blob/v15.4.0-rc.3/docs/docs/02.3-jsx-gotchas.md#html-entities
+  "react/jsx-curly-brace-presence": [
+    "warn",
+    { props: "always", children: "ignore" },
   ],
-  settings: {
-    flowtype: {
-      onlyFilesWithFlowAnnotation: false,
-    },
-    "import/core-modules": ["electron"],
-    "import/resolver": {
-      node: {
-        paths: ["src"],
-        alias: {
-          cc: "companion-components",
-        },
-      },
-    },
-  },
-  rules: {
-    "no-console": "off",
-    "react/jsx-filename-extension": "off",
-    "react/jsx-curly-brace-presence": "off",
-    "no-underscore-dangle": ["error", { allowAfterThis: true }],
-    "unicorn/filename-case": "off",
-    "react/prefer-stateless-function": "off",
-    "unicorn/prevent-abbreviations": [
-      "error",
-      {
-        replacements: {
-          args: false,
-          dev: false,
-          dir: false,
-          env: {
-            environment: false,
-          },
-        },
-      },
-    ],
-  },
-  overrides: [
+  "no-underscore-dangle": ["error", { allowAfterThis: true }],
+  "unicorn/prevent-abbreviations": [
+    "error",
     {
-      files: ["**/*.spec.js"],
-      plugins: ["jest"],
-      env: {
-        jest: true,
+      extendDefaultReplacements: false,
+      replacements: {
+        /* eslint-disable unicorn/prevent-abbreviations */
+        // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prevent-abbreviations.md#replacements
+        // add any repeatedly bad named variables here
+        str: {
+          output: true,
+          value: true,
+        },
+        /* eslint-enable unicorn/prevent-abbreviations */
       },
     },
   ],
 };
+
+module.exports = config;
